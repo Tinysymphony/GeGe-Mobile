@@ -33,5 +33,31 @@ export default {
     })
       .then(res => res.body.data || {})
       .catch(e => {})
+  },
+  getGroupList (context) {
+    return Vue.http({
+      method: 'get',
+      url: API.GET_GROUP_LIST
+    })
+      .then(res => res.body.data || [])
+      .catch(e => {})
+  },
+  createAct (context, payload) {
+    return Vue.http({
+      method: 'get',
+      url: API.CREATE_ACT,
+      params: payload
+    })
+      .then(res => res.body.data)
+      .catch(e => {})
+  },
+  createGroup (context, payload) {
+    return Vue.http({
+      method: 'post',
+      url: API.CREATE_GROUP,
+      data: payload
+    })
+      .then(res => res.body.data || [])
+      .catch(e => {})
   }
 }

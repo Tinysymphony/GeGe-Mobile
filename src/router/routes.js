@@ -12,6 +12,7 @@ import HomePage from '@pages/HomePage'
 import DetailPage from '@pages/DetailPage'
 import PayPage from '@pages/PayPage'
 import SuccessPage from '@pages/SuccessPage'
+import AdminPage from '@pages/AdminPage'
 
 export default [{
   path: '/',
@@ -25,4 +26,7 @@ export default [{
 }, {
   path: '/success',
   component: SuccessPage
+}, {
+  path: '/admin',
+  component: AdminPage
 }]

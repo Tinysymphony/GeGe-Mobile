@@ -6,5 +6,8 @@ export default {
       obj[data[i].id] = data[i]
     }
     state.catMap = obj
+  },
+  FINISH_NOTIFY (state) {
+    state.notify.isValide = false
   }
 }

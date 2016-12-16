@@ -6,9 +6,5 @@ module.exports = {
   '/vapi/**': {
     target: 'http://rap.sankuai.com/mockjsdata/31/',
     changeOrigin: true
-  },
-  '/api/**': {
-    target: 'http://rap.sankuai.com/mockjsdata/21/',
-    changeOrigin: true
   }
 }
