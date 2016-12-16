@@ -14,4 +14,15 @@ Vue.http.interceptors.push((req, next) => {
 })
 
 export default {
+  getActivity (context, payload) {
+    return Vue.http({
+      method: 'get',
+      url: API.GET_ACTIVITY
+    })
+      .then(res => res.body)
+      .then(res => {
+        context.commit('SET_ACTIVITY', res.data)
+      })
+      .catch(e => {})
+  }
 }

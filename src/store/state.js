@@ -21,11 +21,5 @@ export default {
   pageNo: 0,
   height: window.innerHeight + 'px',
   network: '',
-  csuList: [],
-  csuMap: {},
-  cartMap: {},
-  cartList: [],
-  category: {},
-  categoryList: [],
-  currentCategory: {}
+  activityList: []
 }

@@ -26,6 +26,9 @@ import xBanner from '@components/xBanner'
 import xRecommend from '@components/xRecommend'
 import xHot from '@components/xHot'
 export default {
+  beforeCreate () {
+    this.dispatch('getActivity')
+  },
   components: {
     Page,
     xHeader,
