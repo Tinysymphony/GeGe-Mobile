@@ -82,6 +82,7 @@ export default {
         title: this.aName,
         text: this.aDesc
       }).then(data => {
+        console.log(data, 1)
         if (!data) return
         this.clearAct()
         this.$store.state.notify = {

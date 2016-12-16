@@ -46,6 +46,7 @@
       </div>
       <div class="m-t-lg t-c no-select">
         <div class="btn btn-primary fs20 search-btn">搜 索</div>
+        <router-link to="/admin" class="btn btn-default fs20 admin-btn m-t-md"><del>隐秘的</del>管理后台入口</router-link>
       </div>
     </div>
   </div>
@@ -151,6 +152,9 @@ export default {
 }
 .search-btn {
   padding: 5px 100px;
+}
+.admin-btn {
+  padding: 5px 40px;
 }
 .x-type {
   display: inline-block;

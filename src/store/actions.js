@@ -19,7 +19,7 @@ export default {
       method: 'get',
       url: API.GET_ACTIVITY
     })
-      .then(res => res.body)
+      .then(res => res.json())
       .then(res => {
         context.commit('SET_ACTIVITY', res.data)
       })
@@ -57,15 +57,11 @@ export default {
       url: API.CREATE_ACT,
       params: payload
     })
-      .then(res => res.body.data)
+      .then(res => res.json())
+      .then(res => res.data)
       .catch(e => {})
   },
   createGroup (context, payload) {
-    // return Vue.http({
-    //   method: 'post',
-    //   url: API.CREATE_GROUP,
-    //   data: payload
-    // })
     return Vue.http.post(
       API.CREATE_GROUP,
       payload

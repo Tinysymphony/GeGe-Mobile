@@ -67,6 +67,7 @@ router.get('/createAct', function (req, res) {
     url: prefix + '/activity/create' + _parseQuery(req.query),
     jar: jar
   }, function (err, response, body) {
+    console.log(body);
     if (!err && res.statusCode === 200) res.send(body)
     else {
       res.json({
@@ -81,7 +82,7 @@ router.get('/createAct', function (req, res) {
 router.post('/createGroup', function (req, res) {
   request({
     method: 'POST',
-    url: prefix + '/activity/batchCreate',
+    url: prefix + '/group/batchCreate',
     json: req.body,
     jar: jar
   }, function (err, response, body) {
