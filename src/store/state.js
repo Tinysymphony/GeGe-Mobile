@@ -1,6 +1,7 @@
 export default {
   isLogin: true,
   cityId: 310100,
+  actId: 0,
   user: {
     userId: 123,
     name: '胖子烧饼',

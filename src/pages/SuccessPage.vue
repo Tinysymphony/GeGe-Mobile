@@ -33,28 +33,31 @@ import Page from '@components/Page'
 import xHeader from '@components/xHeader'
 import xFooter from '@components/xFooter'
 import like from '@assets/icon/likeRed.svg'
-var groupList = [{
-  groupName: 'Gay组',
-  id: 123,
-  img: ''
-}, {
-  groupName: 'Les组',
-  id: 124,
-  img: 'http://7xjgb0.com1.z0.glb.clouddn.com/mm.png'
-}, {
-  groupName: 'Mint组',
-  id: 126,
-  img: 'http://7xjgb0.com1.z0.glb.clouddn.com/eleQQ20151029-2@2x.png'
-}]
+// var groupList = [{
+//   groupName: 'Gay组',
+//   id: 123,
+//   img: ''
+// }, {
+//   groupName: 'Les组',
+//   id: 124,
+//   img: 'http://7xjgb0.com1.z0.glb.clouddn.com/mm.png'
+// }, {
+//   groupName: 'Mint组',
+//   id: 126,
+//   img: 'http://7xjgb0.com1.z0.glb.clouddn.com/eleQQ20151029-2@2x.png'
+// }]
 export default {
+  beforeCreate () {
+    this.$store.dispatch('getGroupList').then(data => {
+      this.groupList = data
+    })
+  },
   data () {
     return {
       like,
-      groupList
+      groupList: []
     }
   },
-  computed: {},
-  mounted () {},
   methods: {},
   components: {
     Page,

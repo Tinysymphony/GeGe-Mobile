@@ -22,5 +22,8 @@ export default {
   CLEAR_PAGE (state) {
     state.activityList = []
     state.catMap = {}
+  },
+  SET_ACT_ID (state, id) {
+    state.actId = id
   }
 }

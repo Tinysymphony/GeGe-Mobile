@@ -40,15 +40,19 @@ export default {
       url: API.GET_ACT_DETAIL,
       params: { id }
     })
-      .then(res => res.body.data || {})
+      .then(res => res.json())
+      .then(res => res.data)
       .catch(e => {})
   },
-  getGroupList (context) {
+  getGroupList (context, id) {
+    id = id || context.state.actId
     return Vue.http({
       method: 'get',
-      url: API.GET_GROUP_LIST
+      url: API.GET_GROUP_LIST,
+      params: { id }
     })
-      .then(res => res.body.data || [])
+      .then(res => res.json())
+      .then(res => res.data.groupList)
       .catch(e => {})
   },
   createAct (context, payload) {

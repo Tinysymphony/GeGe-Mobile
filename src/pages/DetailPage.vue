@@ -7,7 +7,7 @@
       </div>
       <div class="desc p-sm">
         <p class="fs18 main-red"><strong>￥{{act.price || 120}}</strong><span class="black8 fs14"> —— {{act.num || 10}} 人已经参加</span></p>
-        {{act.desc || text}}
+        {{act.text || text}}
       </div>
       <div class="op p-sm">
         <router-link to="/pay/123" class="btn btn-primary fs18 block buy-btn">购票报名</router-link>
@@ -27,6 +27,7 @@ export default {
   beforeCreate () {
     this.$store.dispatch('getActivityDetail', this.$route.params.id).then(data => {
       this.act = data || {}
+      this.$store.commit('SET_ACT_ID', this.act.id || 0)
     })
   },
   data () {
