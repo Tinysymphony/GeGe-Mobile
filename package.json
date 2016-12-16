@@ -74,6 +74,7 @@
     "pm2": "^2.2.2",
     "postcss-import": "^8.2.0",
     "precss": "^1.4.0",
+    "request": "^2.79.0",
     "sass-loader": "^4.0.2",
     "selenium-server": "2.53.1",
     "semver": "^5.3.0",

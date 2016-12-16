@@ -1,12 +1,20 @@
 <template lang="html">
   <div class="hd fs0">
     <div class="hd-normal no-select" v-if="!search">
-      <div class="icon">
-        <img :src="fire" class="fire-icon">
-      </div>
-      <div class="search" @click="showSearch">
-        <p class="fs14 black10">寻找感兴趣的活动</p>
-      </div>
+      <template v-if="!title">
+        <div class="icon">
+          <img :src="fire" class="fire-icon">
+        </div>
+        <div class="search" @click="showSearch">
+          <p class="fs14 black10">寻找感兴趣的活动</p>
+        </div>
+      </template>
+      <template v-else>
+        <router-link :to="backUrl || '/'" class="icon">
+          <img :src="back" class="fire-icon">
+        </router-link>
+        <div class="act-title fs20"> {{title || '望京酒会'}} </div>
+      </template>
       <div class="icon">
         <img :src="params" class="config-icon">
       </div>
@@ -45,15 +53,25 @@
 
 <script>
 import fire from '@assets/icon/fire.svg'
+import back from '@assets/icon/back.svg'
 import close from '@assets/icon/close.svg'
 import params from '@assets/icon/params.svg'
 export default {
   data () {
     return {
       fire,
+      back,
       close,
       params,
       search: false
+    }
+  },
+  props: {
+    title: {
+      type: String
+    },
+    backUrl: {
+      type: String
     }
   },
   computed: {},
@@ -100,6 +118,13 @@ export default {
   line-height: 32px;
   background-color: rgba(230, 230, 236, 0.69);
   border-radius: 40px;
+}
+.act-title {
+  vertical-align: 8px;
+  display: inline-block;
+  width: calc(100% - 50px - 50px);
+  height: 54px;
+  line-height: 54px;
 }
 .icon {
   text-align: center;

@@ -30,6 +30,8 @@ export default Vue.directive('fall', {
     if (!elList.length) {
       window.removeEventListener('resize', resizeHandler)
       isBind = false
+      initCalc = false
+      waterfallList.length = 0
     }
   }
 })
@@ -53,7 +55,7 @@ function placeElement (el) {
   el.style.left = waterfallList[0].left + 'px'
   el.style.top = waterfallList[0].top + 'px'
   waterfallList[0].top += el.offsetHeight + space
-  waterfallList.sort((a, b) => a.top >= b.top)
+  waterfallList.sort((a, b) => a.top - b.top)
 }
 
 function recalc () {

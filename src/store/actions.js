@@ -24,5 +24,14 @@ export default {
         context.commit('SET_ACTIVITY', res.data)
       })
       .catch(e => {})
+  },
+  getActivityDetail (context, id) {
+    return Vue.http({
+      method: 'get',
+      url: API.GET_ACT_DETAIL,
+      params: { id }
+    })
+      .then(res => res.body.data || {})
+      .catch(e => {})
   }
 }

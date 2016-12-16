@@ -10,6 +10,8 @@
 import HomePage from '@pages/HomePage'
 // const HomePage = resolve => require(['@pages/HomePage'], resolve)
 import DetailPage from '@pages/DetailPage'
+import PayPage from '@pages/PayPage'
+import SuccessPage from '@pages/SuccessPage'
 
 export default [{
   path: '/',
@@ -17,4 +19,10 @@ export default [{
 }, {
   path: '/detail/:id',
   component: DetailPage
+}, {
+  path: '/pay/:id',
+  component: PayPage
+}, {
+  path: '/success',
+  component: SuccessPage
 }]

@@ -27,7 +27,7 @@ import xRecommend from '@components/xRecommend'
 import xHot from '@components/xHot'
 export default {
   beforeCreate () {
-    this.dispatch('getActivity')
+    this.$store.dispatch('getActivity')
   },
   components: {
     Page,
@@ -41,13 +41,4 @@ export default {
 </script>
 
 <style scoped>
-.wp {
-  padding: 64px 0 60px 0;
-  position: absolute;
-  left: 0; right: 0; top: 0; bottom: 0;
-  min-height: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
 </style>

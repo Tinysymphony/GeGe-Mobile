@@ -23,6 +23,11 @@
 .fs17 { font-size: 17px; }
 .fs18 { font-size: 18px; }
 .fs20 { font-size: 20px; }
+.fs22 { font-size: 22px; }
+.fs24 { font-size: 24px; }
+.fs26 { font-size: 26px; }
+.fs28 { font-size: 28px; }
+.fs30 { font-size: 30px; }
 
 .bold { font-weight: bolder; }
 .text-center { text-align: center; }
@@ -76,9 +81,9 @@
 
 .scroller { -webkit-overflow-scrolling: touch; }
 
-.t-c {
-  text-align: center;
-}
+.t-c { text-align: center; }
+.t-l { text-align: left; }
+.t-r { text-align: right; }
 
 .m-l-xs { margin-left: 5px; }
 .m-l-sm { margin-left: 10px; }
@@ -130,10 +135,29 @@
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #f15341;
-}
+.btn-primary { color: #fff; background-color: #f15341; }
+.btn-info { color: #fff; background-color: #41d1f1; }
 
 .p-r { position: relative; }
 .p-a { position: absolute; }
+
+.block { display: block; }
+
+.wp {
+  padding: 64px 0 60px 0;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  min-height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.panel {
+  padding: 15px;
+  margin: 15px;
+  background: #fff;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.07);
+  border-top: 8px solid rgba(34, 170, 221, 0.89);
+  animation: popup .3s ease;
+}

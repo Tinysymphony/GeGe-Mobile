@@ -21,5 +21,6 @@ export default {
   pageNo: 0,
   height: window.innerHeight + 'px',
   network: '',
-  activityList: []
+  activityList: [],
+  actMap: {}
 }

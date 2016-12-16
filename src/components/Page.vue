@@ -38,7 +38,6 @@ export default {
   },
   created () {
     !!window.Analytics && window.Analytics('send', 'pv', this.pageName)
-    // this.$store.dispatch('getUserInfo' )
   },
   components: {
     Modal,
