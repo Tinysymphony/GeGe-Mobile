@@ -25,6 +25,15 @@ export default {
       })
       .catch(e => {})
   },
+  getActList (context) {
+    return Vue.http({
+      method: 'get',
+      url: API.GET_ACTIVITY
+    })
+      .then(res => res.json())
+      .then(res => res.data)
+      .catch(e => {})
+  },
   getActivityDetail (context, id) {
     return Vue.http({
       method: 'get',
@@ -52,11 +61,15 @@ export default {
       .catch(e => {})
   },
   createGroup (context, payload) {
-    return Vue.http({
-      method: 'post',
-      url: API.CREATE_GROUP,
-      data: payload
-    })
+    // return Vue.http({
+    //   method: 'post',
+    //   url: API.CREATE_GROUP,
+    //   data: payload
+    // })
+    return Vue.http.post(
+      API.CREATE_GROUP,
+      payload
+    )
       .then(res => res.body.data || [])
       .catch(e => {})
   }

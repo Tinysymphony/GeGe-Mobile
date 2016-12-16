@@ -18,7 +18,7 @@
         <p class="fs20 no-select">创建群组</p>
         <label class="lb">
           <select class="m-t-lg select" v-model="groupId">
-            <option :value="item.id || 0" v-for="item in gList">{{item.name || ''}}</option>
+            <option :value="item.id || 0" v-for="item in gList">{{item.title || ''}}</option>
           </select>
         </label>
         <div class="input-group">
@@ -64,7 +64,8 @@ export default {
       if (+num === 2) this.getActList()
     },
     getActList () {
-      this.$store.dispatch('getGroupList').then(data => {
+      this.$store.dispatch('getActList').then(data => {
+        console.log(data)
         this.gList = data || []
       })
     },
@@ -123,7 +124,7 @@ export default {
       this.aDesc = ''
     },
     validateGroup () {
-      return this.gName !== '' && this.gDesc !== '' && !this.groupId
+      return this.gName !== '' && this.gDesc !== '' && this.groupId
     },
     clearGroup () {
       this.gName = ''

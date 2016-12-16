@@ -1,14 +1,16 @@
+/* eslint-disable */
+
 var router = require('express').Router()
 var request = require('request')
 var jar = request.jar()
-var prefix = 'http://127.0.0.1:8080/hack-1.0.0'
+var prefix = 'http://103.37.156.235:8080/hack-1.0.0'
 router.get('/getActivity', function (req, res) {
   request({
     method: 'GET',
     url: prefix + '/activity/list'
   }, function (err, response, body) {
     if (!err && res.statusCode === 200) {
-      res.json(body)
+      res.send(body)
     } else {
       res.json({
         code: 500,
@@ -22,11 +24,10 @@ router.get('/getActivity', function (req, res) {
 router.get('/getActivityDetail', function (req, res) {
   request({
     method: 'GET',
-    url: prefix + '/activity/getById',
-    params: req.query,
+    url: prefix + '/activity/getById?id=' + req.query.id,
     jar: jar
   }, function (err, response, body) {
-    if (!err && res.statusCode === 200) res.json(body)
+    if (!err && res.statusCode === 200) res.send(body)
     else {
       res.json({
         msg: 'failed',
@@ -37,7 +38,7 @@ router.get('/getActivityDetail', function (req, res) {
   })
 })
 
-router.get('/getGroupList', function (req, res) {
+router.get('/getActList', function (req, res) {
   request({
     method: 'GET',
     url: prefix + '/activity/getById',
@@ -63,11 +64,10 @@ router.get('/getGroupList', function (req, res) {
 router.get('/createAct', function (req, res) {
   request({
     method: 'GET',
-    url: prefix + '/activity/create',
-    params: req.query,
+    url: prefix + '/activity/create' + _parseQuery(req.query),
     jar: jar
   }, function (err, response, body) {
-    if (!err && res.statusCode === 200) res.json(body)
+    if (!err && res.statusCode === 200) res.send(body)
     else {
       res.json({
         msg: 'failed',
@@ -85,7 +85,7 @@ router.post('/createGroup', function (req, res) {
     json: req.body,
     jar: jar
   }, function (err, response, body) {
-    if (!err && res.statusCode === 200) res.json(body)
+    if (!err && res.statusCode === 200) res.send(body)
     else {
       res.json({
         msg: 'failed',
@@ -95,5 +95,13 @@ router.post('/createGroup', function (req, res) {
     }
   })
 })
+
+function _parseQuery (obj) {
+  var arr = []
+  for(let a in obj) {
+    arr.push(a + '=' + obj[a])
+  }
+  return '?' + arr.join('&')
+}
 
 module.exports = router
