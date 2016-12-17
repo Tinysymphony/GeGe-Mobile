@@ -6,7 +6,7 @@
         <img :src.once="act.img || defaultImg" class="act-img">
       </div>
       <div class="desc p-sm">
-        <p class="fs18 main-red"><strong>￥{{act.price || 120}}</strong><span class="black8 fs14"> —— {{act.num || 10}} 人已经参加</span></p>
+          <p class="fs18 main-red"><strong>￥{{act.price || 50 + ~~(Math.random() * 300)}}</strong><span class="black8 fs14"> —— {{act.num || ~~(Math.random() * 100)}} 人已经参加</span></p>
         {{act.text || text}}
       </div>
       <div class="op p-sm">

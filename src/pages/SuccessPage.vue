@@ -6,11 +6,11 @@
         <p> <img :src="like"> </p>
         <p class="fs30 main-red m-t-sm"><i>支付成功</i></p>
         <div class="t-l fs16 black6 m-t-md order-info">
-          <p>单号：12312312</p>
-          <p>活动：望京WiNe酒会</p>
+          <p>单号：{{100000000 + ~~(Math.random() * 10000000)}}</p>
+          <p>活动：{{title}}</p>
           <p>时间：2016/12/22 20:00</p>
           <p>地点：恒电大厦B座成都厅</p>
-          <p>已支付：<strong class="main-red">140元</strong></p>
+          <p>已支付：<strong class="main-red">{{50 + ~~(Math.random() * 300)}}元</strong></p>
         </div>
       </section>
       <section class="panel t-c">
@@ -20,7 +20,7 @@
             <img :src="item.img || 'http://7xjgb0.com1.z0.glb.clouddn.com/txa.png'">
           </div>
           <div class="g-name fs20 black5 m-l-sm">{{item.groupName}}</div>
-          <span class="f-r black9">{{item.num || 5}} 人已加入</span>
+          <span class="f-r black9">{{item.num || ~~(Math.random() * 30)}} 人已加入</span>
         </a>
       </section>
     </div>
@@ -49,12 +49,14 @@ import like from '@assets/icon/likeRed.svg'
 export default {
   beforeCreate () {
     this.$store.dispatch('getGroupList').then(data => {
-      this.groupList = data
+      this.groupList = data.groupList || []
+      this.title = data.title || ''
     })
   },
   data () {
     return {
       like,
+      title: '',
       groupList: []
     }
   },

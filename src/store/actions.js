@@ -52,7 +52,7 @@ export default {
       params: { id }
     })
       .then(res => res.json())
-      .then(res => res.data.groupList)
+      .then(res => res.data)
       .catch(e => {})
   },
   createAct (context, payload) {

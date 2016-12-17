@@ -3,7 +3,7 @@
     <x-header slot="header" :title.once="'支付页面'" :back-url.once="'/detail/' + id"></x-header>
     <div class="wp scroller no-select">
       <section class="pay-sec panel">
-        <p class="t-c fs20 m-b-lg">共需支付 <span class="main-red fs30">{{140}}</span> 元</p>
+        <p class="t-c fs20 m-b-lg">共需支付 <span class="main-red fs30">{{50 + ~~(Math.random() * 300)}}</span> 元</p>
         <input type="radio" id="gg" v-model="pay" value="0">
         <label class="label gg-label" for="gg">鸽鸽钱包<del class="fs16 black10 m-l-sm">好用不贵，秒杀马云爹</del></label><br/>
         <input type="radio" id="mt" v-model="pay" value="1">
